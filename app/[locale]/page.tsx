@@ -1,13 +1,16 @@
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 import styles from "./page.module.css"
 
 export default function Home() {
+    const t = useTranslations("Index")
+
     return (
         <main className={styles.main}>
             <div className={styles.description}>
                 <p>
-                    Get started by editing&nbsp;
+                    {t("title")}
                     <code className={styles.code}>app/page.tsx</code>
                 </p>
                 <div>
