@@ -2,18 +2,26 @@
     "name": "meeex",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "db:generate": "drizzle-kit generate:pg",
+        "db:migrate": "tsx ./db/migrate.ts",
         "lint": "next lint",
         "lint:fix": "next lint -- --fix",
         "format": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,json}\" --ignore-path .gitignore"
     },
     "dependencies": {
+        "@auth/core": "^0.18.5",
+        "@auth/drizzle-adapter": "^0.3.10",
         "@radix-ui/themes": "^2.0.2",
+        "drizzle-orm": "^0.29.1",
         "next": "14.0.4",
+        "next-auth": "^4.24.5",
         "next-intl": "^3.3.1",
+        "postgres": "^3.4.3",
         "react": "^18",
         "react-dom": "^18"
     },
@@ -23,12 +31,15 @@
         "@types/react-dom": "^18",
         "@typescript-eslint/eslint-plugin": "^6.13.2",
         "@typescript-eslint/parser": "^6.13.2",
+        "dotenv": "^16.3.1",
+        "drizzle-kit": "^0.20.6",
         "eslint": "^8",
         "eslint-config-next": "14.0.4",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-prettier": "^5.0.1",
         "eslint-plugin-simple-import-sort": "^10.0.0",
         "prettier": "^3.1.0",
+        "tsx": "^4.6.2",
         "typescript": "^5"
     }
 }
