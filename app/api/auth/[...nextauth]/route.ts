@@ -2,18 +2,15 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 
+import { serverEnv } from "@/config/env/server.mjs"
 import { db } from "@/db"
-
-if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
-    throw new Error("Missing Google provider environment variables!")
-}
 
 const handler = NextAuth({
     adapter: DrizzleAdapter(db),
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            clientId: serverEnv.GOOGLE_CLIENT_ID,
+            clientSecret: serverEnv.GOOGLE_CLIENT_SECRET,
         }),
     ],
 })
